@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Bluetooth</string>
+    <string name="RC">Remote Control</string>
+    <string name="right">Go to the right</string>
+    <string name="left">Go to the left</string>
+    <string name="forward">Go forward</string>
+    <string name="backward">Go back</string>
+    <string name="up">UP</string>
+    <string name="down">DOWN</string>
+    <string name="discover">Discover</string>
+    <string name="greenBullet">🟢</string>
+    <string name="redBullet">🔴</string>
+</resources>
