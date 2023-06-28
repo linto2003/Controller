@@ -397,19 +397,29 @@ public class MainActivity extends AppCompatActivity implements ConnectionHelper,
             connection.start();
         }
     }
-
+    
     @Override
     public void onSuccess(String message) {
-        blueConStatus.setText(message);
-        devicesPanel.setVisibility(View.GONE);
-        controllerMain.setVisibility(View.VISIBLE);
-        sendMessages = new BluetoothService.ConnectedThread(connection.getMainSocket());
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                blueConStatus.setText(message);
+                devicesPanel.setVisibility(View.GONE);
+                controllerMain.setVisibility(View.VISIBLE);
+                sendMessages = new BluetoothService.ConnectedThread(connection.getMainSocket());
+            }
+        });
     }
 
     @Override
     public void onFailure(String message) {
-        blueConStatus.setText(message);
-        devicesPanel.setVisibility(View.GONE);
-        controllerMain.setVisibility(View.VISIBLE);
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                blueConStatus.setText(message);
+                devicesPanel.setVisibility(View.GONE);
+                controllerMain.setVisibility(View.VISIBLE);
+            }
+        });
     }
 }
